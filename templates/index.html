@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Telecom Checker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Apply a sleek, gradient background with an image */
+        body {
+            font-family: "Merriweather", serif;
+            color: #fff;
+            margin: 0;
+            background: url('/static/futuristic-smart-city-with-5g-global-network-technology_53876-98438.webp') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            color: white;
+            display: flex;
+            text-align: center;
+            margin-bottom: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Add a card-like container with shadow */
+        #container {
+            color: #000000;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        select{
+            background: linear-gradient(to right, #5b86e5, #36d1dc);
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 25px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+        }
+        input[type="text"] {
+            background: linear-gradient(to right, #5b86e5, #36d1dc);
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 25px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            outline: none;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .result-table {
+            width: inherit;
+        }
+
+        .result-table th{
+            width: 50%;
+            border-radius: 25px 0px 0px 25px;
+        }
+        .result-table td {
+            width: 50%;
+            border-radius: 0px 25px 25px 0px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: white;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #5b86e5, #36d1dc);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #results {
+            margin-top: 20px;
+            /* background-color: #ffffff; */
+            color: #080606;
+            font-size: 1.1em;
+            width: 300px;
+            border-radius: 25px;
+            width: inherit;
+        }
+
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #000000;
+            font-size: 1.1em;
+        }
+
+        th {
+            background-color: #36d1dc;
+            color: rgb(0, 0, 0);
+            text-transform: uppercase;
+        }
+
+        td:last-child {
+            text-align: right;
+        }
+
+
+        select:hover {
+            cursor: pointer;
+            background :linear-gradient(to right, #36d1dc, #5b86e5);
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 500px) {
+            #container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            input[type="text"]:hover::selection{
+                font-size: 1em;
+                background :linear-gradient(to right, #36d1dc, #5b86e5);
+            }
+            select,
+            button {
+                font-size: 1em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Telecom Checker</h1>
+    </header>
+    <center>
+        <div id="container">
+            <select id="countryDropdown">
+                <option value="">Select a country</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="India">India</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Brazil">Brazil</option>
+                <option value="South Africa">South Africa</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Canada">Canada</option>
+                <option value="United States">United States</option>
+                <option value="Italy">Italy</option>
+                <option value="Spain">Spain</option>
+                <option value="Russia">Russia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Turkey">Turkey</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Argentina">Argentina</option>
+                <option value="South Sudan">South Sudan</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Poland">Poland</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Greece">Greece</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Tanzania">Tanzania</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Algeria">Algeria</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Oman">Oman</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Angola">Angola</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Norway">Norway</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Finland">Finland</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Iceland">Iceland</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Peru">Peru</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Panama">Panama</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Honduras">Honduras</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Barbados">Barbados</option>
+
+            </select>
+            <input id="phoneInput" type="text" placeholder="Enter phone code or number..."
+                onkeypress="handleEnter(event)">
+            <button onclick="checkNumber()">Check Number</button>
+            <div id="results"></div>
+        </div>
+    </center>
+
+    <script>
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                checkNumber();
+            }
+        }
+
+        async function checkNumber() {
+            const phoneInput = document.getElementById("phoneInput").value.trim();
+            const selectedCountry = document.getElementById("countryDropdown").value;
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            if (!phoneInput) {
+                resultsDiv.innerHTML = '<p style="color: red;">Please enter a phone number or code.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch("/check-number", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        number: phoneInput,
+                        country: selectedCountry
+                    }),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || "Unknown error");
+                }
+
+                const data = await response.json();
+
+                resultsDiv.innerHTML = `
+                    <table class="result-table">
+                        <tr><th>Country</th><td>${data.country}</td></tr>
+                        <tr><th>Country Code</th><td>${data.country_code}</td></tr>
+                        <tr><th>Operator</th><td>${data.operator}</td></tr>
+                        <tr><th>Prefix</th><td>${data.prefix}</td></tr>
+                        <tr><th>MCC</th><td>${data.mcc || "N/A"}</td></tr>
+                        <tr><th>MNC</th><td>${data.mnc || "N/A"}</td></tr>
+                    </table>
+                `;
+            } catch (err) {
+                resultsDiv.innerHTML = `<p style="color: red;">Error: ${err.message}</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
